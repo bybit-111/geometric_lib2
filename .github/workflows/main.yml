@@ -18,7 +18,7 @@ jobs:
           echo '--- START WORK ON REMOTE SERVER ---';
           sudo apt update && sudo apt install python3
           echo '--- DOWNLOADING PYTHON ---';
-          python3 -m unittest discoverd -s tests
+          python3 -m unittest discover -s tests
           echo '--- START TESTS ---';
   windows_runner:
     runs-on: windows-lates
@@ -32,5 +32,5 @@ jobs:
           echo '--- START WORK ON REMOTE SERVER ---';
           python -m pip install --upgrade pip
           echo '--- DOWNLOADING PYTHON ---';
-          python3 -m unittest discoverd -s tests
+          python3 -m unittest discover -s tests
           echo '--- START TESTS ---';
