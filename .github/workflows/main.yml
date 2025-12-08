@@ -1,0 +1,31 @@
+on: [push]
+
+jobs:
+  ubuntu_runner:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Run tests
+        run: |
+          echo '--- START WORK ON REMOTE SERVER ---';
+          sudo apt update && sudo apt install python3
+          echo '--- DOWNLOADING PYTHON ---';
+          python3 -m unittest discover -s tests
+          echo '--- START TESTS ---';
+  windows_runner:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Run tests
+        run: |
+          echo '--- START WORK ON REMOTE SERVER ---';
+          python -m pip install --upgrade pip
+          echo '--- DOWNLOADING PYTHON ---';
+          python3 -m unittest discover -s tests
+          echo '--- START TESTS ---';
